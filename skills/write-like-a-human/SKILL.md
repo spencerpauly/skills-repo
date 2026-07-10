@@ -16,13 +16,17 @@ Rewrite text so it stops sounding like a language model wrote it. Wraps the open
 
 ## Steps
 
-1. **Pull down the reference list of patterns** the first time this skill activates in a session:
+1. **Load the reference list of patterns** the first time this skill activates in a session. On Spencer's machine, read the canonical local copy (newer than upstream):
+   ```bash
+   cat ~/.agents/skills/humanizer/SKILL.md
+   ```
+   Otherwise pull it from upstream:
    ```bash
    curl -fsSL https://raw.githubusercontent.com/blader/humanizer/main/SKILL.md
    ```
-   Read it. There are ~30 patterns; you don't need to memorize them, just keep them visible while editing.
+   There are ~30 patterns; you don't need to memorize them, just keep them visible while editing.
 
-2. **Ask for a voice sample** if you don't already have one. One paragraph the user wrote themselves is enough. Match cadence, vocabulary, and how they handle transitions.
+2. **Ask for a voice sample** if you don't already have one. One paragraph the user wrote themselves is enough. Match cadence, vocabulary, and how they handle transitions. For content written *as Spencer*, the voice layer is the `spencers-writing-style` skill in the stack repo (`.agents/skills/spencers-writing-style/`) — use it instead of asking.
 
 3. **Do a first pass** removing the highest-signal tells in this order:
    1. Sycophantic openers ("Great question!", "Absolutely!").
